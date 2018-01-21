@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='grid.css') }}">
+		<link rel=stylesheet type=text/css href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</body>
+</html>

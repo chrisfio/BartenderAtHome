@@ -1,0 +1,98 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="main-section">
+	<div class="far-left">
+		<div class="top-title">
+			<h2 class="section-header">Spirits</h2>
+		</div>
+		<div class="bottom-body">
+			<ul class="spirit-row">
+				{% for spirit in spirits %}
+				<li>
+					<a href = "{{url_for('showRecipes', spirit_id = spirit.id)}}"><i class="fa fa-tint" aria-hidden="true"></i><p class="spirit-name">{{spirit.name}}</p></a>
+					<a href="{{url_for('editSpirit', spirit_id = spirit.id)}}">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					</a>
+					<a href="{{url_for('deleteSpirit', spirit_id = spirit.id)}}">
+						<i class="fa fa-trash-o" aria-hidden="true"></i>
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+			<a class="new-spirit" href="{{url_for('newSpirit')}}"><i class="fa fa-plus" aria-hidden="true"></i></a>
+		</div>
+	</div>
+	<div class="middle-left">
+		<div class="top-title">
+			<h2 class="section-header">Cocktails</h2>
+		</div>
+		<div class="bottom-body">
+			<ul class="cocktail-row">
+				{% for recipe in recipes %}
+				<li>
+					<a href="{{ url_for('showSelectedRecipe', spirit_id=spirit.id, recipe_id=recipe.id)}}"><i class="fa fa-glass" aria-hidden="true"></i><p class="cocktail-name">{{recipe.name}}</p></a>
+					<a href="{{ url_for('editRecipe', spirit_id=spirit.id, recipe_id=recipe.id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+					<a href="{{ url_for('deleteRecipe', spirit_id=spirit.id, recipe_id=recipe.id)}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+				</li>			
+				{% endfor %}
+			</ul>
+			<a class="new-spirit" href="{{ url_for('newRecipe', spirit_id=spirit.id)}}"><i class="fa fa-plus" aria-hidden="true"></i></a>
+		</div>
+	</div>
+	<div class="right-half">
+		<div class="top-title">
+			<h2 class="section-header">Edit {{recipe.name}}? </h2>
+		</div>
+		<div class="bottom-body">
+			<form class="form" action="{{ url_for('editRecipe', spirit_id=spirit_id, recipe_id=recipe_id)}}" method = "post">
+				<div class="form-group">
+					<div class="form-label">
+						<label for="name">Drink Name:</label>
+						<textarea type ="text" class="name-form form-control" maxlength="100" name="name" value="{{recipe.name}}">{{recipe.name}}</textarea>
+					</div>
+
+					<div class="form-label">
+						<label for="description">Description:</label>
+						<textarea type ="text" class="description-form form-control" maxlength="1000" name="description" value="{{recipe.description}}">{{recipe.description}}</textarea>
+					</div>
+
+					<div class="form-label">
+						<label for="ingredients">Ingredients</label>
+						<textarea type ="text" class="ingredients-form form-control" maxlength="1000" name="ingredients" value="{{recipe.ingredients}}">{{recipe.ingredients}}</textarea>
+					</div>
+
+					<div class="form-label">
+						<label for="instructions">Instructions:</label>
+						<textarea type ="text" class="instructions-form form-control" maxlength="1000" name="instructions" value="{{recipe.instructions}}">{{recipe.instructions}}</textarea>
+					</div>	
+
+					<div class="form-label">
+						<button type="submit" class="btn btn-default" id="submit" type="submit">
+						<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Update</button>
+					</div>	
+				</div>							
+			</form>
+			<a href = "{{url_for('showRecipes', spirit_id = spirit_id)}}">
+			<button class="btn btn-default delete">
+			<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+			</a>
+		</div>
+	</div>
+</div>
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<div class="popover">
+		<div class = 'flash'>
+
+		<ul>
+			{% for message in messages %}
+		<li> <strong> {{ message }} </strong> </li>
+		{% endfor %}
+	</ul>
+		</div>
+	</div>
+	{% endif %}
+{% endwith %}
+{% include "footer.html" %}
+{% endblock %}

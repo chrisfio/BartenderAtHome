@@ -1,0 +1,22 @@
+<div class="header">
+	<h1>Bartender At Home</h1>
+	<div class="text-left">
+		<a href="{{url_for('showSpirits')}}">
+			<i class="fa fa-home" aria-hidden="true"></i>
+			<p class="header-label">Home</p>
+		</a>
+	</div>
+	<div class="text-right">
+		{%if 'username' not in session %}
+			<a href="{{url_for('showLogin')}}">
+			<i class="fa fa-sign-in" aria-hidden="true"></i>
+			<p class="header-label">Login</p>
+			</a>
+		{% else %}
+			<a href="{{url_for('disconnect')}}">
+			<i class="fa fa-sign-out" aria-hidden="true"></i>
+			<p class="header-label">Logout</p>
+			</a>
+		{% endif %}		
+	</div>
+</div>

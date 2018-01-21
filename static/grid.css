@@ -1,0 +1,280 @@
+.wrapper {
+	display: grid;
+	grid-template-rows: 3fr 15fr 1fr;
+	height: 100vh;
+}
+
+html {
+	height: 100vh;
+	overflow: hidden;
+}
+
+body .wrapper .header {
+	background: #52a8f5;
+	background-image: linear-gradient(159deg, #52a8f5 50%, #024a8a 100%);
+	position: relative;
+	height: 90%; 
+    text-align: center; 
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper .header h1 {
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	font-family: 'Roboto', sans-serif;
+	font-size: 3.5em;
+	display: table-cell; 
+	vertical-align: middle; 
+	text-shadow: 0 1px 2px rgba(0,0,0,0.20);		
+}
+
+.text-left {
+	position: absolute;
+    bottom: 15%;
+    left: 50px;
+	vertical-align: middle; 
+	text-shadow: 0 1px 2px rgba(0,0,0,0.20);
+}
+
+.text-right {
+	position: absolute;
+    bottom: 15%;
+    right: 50px;
+    vertical-align: middle;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.20);
+}
+
+.header div a i {
+	color: white;
+	font-size: 3em;
+	text-decoration: none;
+}
+
+.header div a {
+	text-decoration: none;
+}
+
+.header-label {
+	margin: 0;
+	text-decoration: none;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+}
+
+body {
+	margin: 0;
+}
+
+.main-section {
+	display: grid;
+	padding: 1% 5% 1% 5%;
+	grid-template-columns: 1fr 1fr 2fr;
+	background: #f5f4f5;
+	align-items: center;
+	justify-content: center;
+}
+
+.login-main-section {
+	padding: 1% 5% 1% 5%;
+	background: #f5f4f5;
+	align-items: center;
+	justify-content: center;
+}
+
+.far-left, .middle-left, .right-half {
+	box-sizing: border-box;
+	display: inline-block;
+	background: #FFF;
+	width: 90%;
+	height: 90%;
+	border-radius: 4px;
+	position: relative;
+	box-shadow: 0 3px 3px rgba(224, 231, 245, 0.5)
+}
+
+.top-title {
+	height: 12%;
+	background: rgba(82, 168, 245, .5);
+	position: relative;
+    text-align: center;
+    display: table;
+    width: 100%;
+}
+
+.top-title h2 {
+	margin: 0;
+	color: #fff;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	font-size: 2em;
+	display: table-cell; 
+	vertical-align: middle;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.20);
+}
+
+.spirit-row a {
+	text-decoration: none;
+	color: #000000;
+	font-family: 'Open Sans', sans-serif;
+	display: inline-block;
+}
+
+.spirit-row a:hover {
+	color: #65ea7f;
+}
+
+ul {
+	padding-left: 3%;
+	display: inline-block; 
+}
+
+li {
+	list-style-type: none;
+	padding-bottom: 2%;
+	font-size: 1.3vw;
+}
+
+.spirit-name {
+	margin: 0;
+	display: inline-block;
+}
+
+.cocktail-name {
+	margin: 0;
+	display: inline-block;
+}
+
+.new-spirit {
+	position: absolute;
+    bottom: 5%;
+    left: 45%;
+    font-size: 3vw;
+    text-decoration: none;
+    color: #65ea7f;
+}
+
+.new-spirit:hover {
+	font-size: 3.25vw;
+	left: 44.5%;
+	bottom: 4.5%;
+}
+
+.cocktail-row a {
+	text-decoration: none;
+	color: #000000;
+	font-family: 'Open Sans', sans-serif;
+	display: inline-block;
+}
+
+.description {
+	text-decoration: none;
+	color: #000000;
+	font-family: 'Open Sans', sans-serif;
+	display: inline-block;
+	font-size: 1.1vw;
+	padding: 3%;
+	padding-top: 16px; 
+	margin: 0;
+}
+
+.cocktail-row a:hover {
+	color: #65ea7f;
+}
+
+.main-section .right-half {
+	width: 100%;
+}
+
+.footer {
+	background: #52a8f5;
+	background-image: linear-gradient(159deg, #52a8f5 50%, #024a8a 100%);
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	text-align: center;
+}
+
+.color-pop {
+	background: #65ea7f;
+}
+
+label {
+	float: left;
+	text-align: right;
+	margin-right: 15px;
+	min-width: 20%;
+}
+
+a .fa-tint {
+	padding-right: 5px;
+    font-size: 1vw;
+}
+
+a .fa-glass {
+	padding-right: 5px;
+    font-size: 1vw;
+}
+
+a .fa-pencil-square-o {
+	padding-left: 4px;
+    font-size: 1vw;
+}
+
+a .fa-trash-o {
+	padding-left: 4px;
+    font-size: 1vw;
+}
+
+.form {
+	padding: 3%;
+	padding-top: 16px;
+}
+
+.form-label {
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	font-size: 1.3vw;
+}
+
+.form-group {
+	padding-top: 16px;
+}
+
+.form-control {
+	width: 60%;
+}
+
+textarea {
+	padding-top: 4px; 
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	font-size: 1.1vw;
+}
+
+.name-form {
+	height: 20px; 
+}
+
+.description-form {
+	min-height: 75px;
+}
+
+.ingredients-form {
+	min-height: 75px;
+}
+
+.instructions-form {
+	min-height: 75px;
+}
+
+.btn-default {
+	text-decoration: none;
+}
+
+a {
+	text-decoration: none;
+}

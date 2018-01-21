@@ -1,0 +1,58 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="main-section">
+	<div class="far-left">
+		<div class="top-title">
+			<h2 class="section-header">Spirits</h2>
+		</div>
+		<div class="bottom-body">
+			<ul class="spirit-row">
+				{% for spirit in spirits %}
+				<li>
+					<a href = "{{url_for('showRecipes', spirit_id = spirit.id)}}"><i class="fa fa-tint" aria-hidden="true"></i><p class="spirit-name">{{spirit.name}}</p></a>
+					<a href="{{url_for('editSpirit', spirit_id = spirit.id)}}">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					</a>
+					<a href="{{url_for('deleteSpirit', spirit_id = spirit.id)}}">
+						<i class="fa fa-trash-o" aria-hidden="true"></i>
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+			<a class="new-spirit" href="{{url_for('newSpirit')}}"><i class="fa fa-plus" aria-hidden="true"></i></a>
+		</div>
+	</div>
+	<div class="middle-left">
+		<div class="top-title">
+			<h2 class="section-header">Cocktails</h2>
+		</div>
+		<div class="bottom-body">
+			<p class="description">Select a spirit on the left to view our cocktail list.</p>
+		</div>
+	</div>
+	<div class="right-half">
+		<div class="top-title">
+			<h2 class="section-header">Description</h2>
+		</div>
+		<div class="bottom-body">
+			<p class="description">Select a spirit on the left to learn more about it here.</p>
+		</div>
+	</div>
+</div>
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<div class="popover">
+		<div class = 'flash'>
+
+		<ul>
+			{% for message in messages %}
+		<li> <strong> {{ message }} </strong> </li>
+		{% endfor %}
+	</ul>
+		</div>
+	</div>
+	{% endif %}
+{% endwith %}
+{% include "footer.html" %}
+{% endblock %}
