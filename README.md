@@ -10,3 +10,4 @@ Once the VM is up and running, save all html/css/python/db files to the same loc
 
 Launch the app.py file using the VM. Go to Localhost:5000 to begin using the program. 
 
+
