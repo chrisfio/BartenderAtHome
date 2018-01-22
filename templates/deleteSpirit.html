@@ -42,7 +42,7 @@
 	</div>
 	<div class="right-half">
 		<div class="top-title">
-			<h2 class="section-header">delete {{spirit.name}}? </h2>
+			<h2 class="section-header">Delete {{spirit.name}}? </h2>
 		</div>
 		<div class="bottom-body">
 			<form class="form" action="{{url_for('deleteSpirit', spirit_id = spirit.id)}}" method = 'post'>
@@ -51,7 +51,7 @@
 
 			</form>
 				<a href = "{{url_for('showSpirits')}}">
-				<button class="">
+				<button class="btn">
 				<span class="" aria-hidden="true"></span> Cancel</button>
 				</a>
 		</div>

@@ -333,11 +333,13 @@ a {
 	-webkit-border-radius: 28;
 	-moz-border-radius: 28;
 	border-radius: 28px;
+	border-radius: none; 
 	font-family: 'Roboto', sans-serif;
 	color: #ffffff;
-	font-size: 1em;
-	padding: 10px 20px 10px 20px;
+	font-size: 15px;
+	padding: 5px 10px 5px 10px;
 	text-decoration: none;
+	box-shadow: 0 3px 3px rgba(224, 231, 245, 0.5); 
 }
 
 .btn:hover {
