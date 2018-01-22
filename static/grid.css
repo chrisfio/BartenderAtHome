@@ -278,3 +278,20 @@ textarea {
 a {
 	text-decoration: none;
 }
+
+.login-main-section {
+	display: flex;
+}
+
+.login-box {
+	width: 33%;
+    max-width: 400px;
+    height: 50%;
+    max-height: 500px;
+    box-sizing: border-box;
+    display: inline-block;
+    background: #FFF;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 3px 3px rgba(224, 231, 245, 0.5);
+}
