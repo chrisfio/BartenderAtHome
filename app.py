@@ -348,7 +348,7 @@ def editSpirit(spirit_id):
     creator = getUserInfo(editedSpirit.user_id)
     recipes = session.query(Recipe).filter_by(
         spirit_id=spirit_id).all()
-    if editedSpirit.user_id != login_session['user_id'] and login_session['email'] == 'chris.fiorino@gmail.com':
+    if editedSpirit.user_id != login_session['user_id'] or login_session['email'] != 'chris.fiorino@gmail.com':
         flash('You do not have access to edit %s, you can only edit items you created' % editedSpirit.name)
         return redirect(url_for('showSpirits'))
     if request.method == 'POST':
@@ -379,10 +379,8 @@ def deleteSpirit(spirit_id):
     recipes = session.query(Recipe).filter_by(
         spirit_id=spirit_id).all()
     if spiritToDelete.user_id != login_session['user_id'] and login_session['email'] != 'chris.fiorino@gmail.com':
-        return """<script>function myFunction()
-        {alert('You are not authorized to delete this spirit. Please
-         create your own spirit in order to delete.');}</script>
-        <body onload='myFunction()'>"""
+        flash('You do not have access to delete %s, you can only delete items you created' % spiritToDelete.name)
+        return redirect(url_for('showSpirits'))
     if request.method == 'POST':
         session.delete(spiritToDelete)
         flash('%s Successfully Deleted' % spiritToDelete.name)
@@ -460,11 +458,6 @@ def newRecipe(spirit_id):
     spirit = session.query(Spirit).filter_by(id=spirit_id).one()
     recipes = session.query(Recipe).filter_by(
         spirit_id=spirit_id).all()
-    if login_session['user_id'] != spirit.user_id and login_session['email'] !='chris.fiorino@gmail.com':
-        return """<script>function myFunction()
-                  {alert('You are not authorized to add menu items to this
-                   spirit. Please create your own spirit or recipe in order to
-                   add items.');}</script><body onload='myFunction()'>"""
     if request.method == 'POST':
         newRecipe = Recipe(
             name=request.form['name'],
@@ -506,10 +499,8 @@ def editRecipe(spirit_id, recipe_id):
     editedRecipe = session.query(Recipe).filter_by(id=recipe_id).one()
     spirit = session.query(Spirit).filter_by(id=spirit_id).one()
     if login_session['user_id'] != spirit.user_id and login_session['email'] !='chris.fiorino@gmail.com':
-        return """<script>function myFunction()
-               {alert('You are not authorized to edit menu items to this
-                recipe. Please create your own spirit or recipe in order to
-                 edit items.');}</script><body onload='myFunction()'>"""
+        flash('You do not have access to edit %s, you can only edit items you created' % editedRecipe.name)
+        return redirect(url_for('showRecipes', spirit_id=spirit_id))
     if request.method == 'POST':
         if request.form['name']:
             editedRecipe.name = request.form['name']
@@ -551,10 +542,8 @@ def deleteRecipe(spirit_id, recipe_id):
     recipes = session.query(Recipe).filter_by(
         spirit_id=spirit_id).all()
     if login_session['user_id'] != spirit.user_id and login_session['email'] !='chris.fiorino@gmail.com':
-        return """<script>function myFunction()
-               {alert('You are not authorized to edit menu items to this
-                recipe. Please create your own spirit or recipe in order to
-                 edit items.');}</script><body onload='myFunction()'>"""
+        flash('You do not have access to delete %s, you can only delete items you created' % deleteRecipe.name)
+        return redirect(url_for('showRecipes', spirit_id=spirit_id))
     if request.method == 'POST':
         session.delete(deleteRecipe)
         session.commit()
