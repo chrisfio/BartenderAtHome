@@ -348,7 +348,7 @@ def editSpirit(spirit_id):
     creator = getUserInfo(editedSpirit.user_id)
     recipes = session.query(Recipe).filter_by(
         spirit_id=spirit_id).all()
-    if editedSpirit.user_id != login_session['user_id']:
+    if editedSpirit.user_id != login_session['user_id'] or login_session['email'] != 'chris.fiorino@gmail.com':
         return """<script>function myFunction()
             {alert('You are not authorized to edit this spirit. Please cre
             ate your own spirit in order to edit.');}</script><body onload=
