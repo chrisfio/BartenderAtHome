@@ -348,7 +348,7 @@ def editSpirit(spirit_id):
     creator = getUserInfo(editedSpirit.user_id)
     recipes = session.query(Recipe).filter_by(
         spirit_id=spirit_id).all()
-    if editedSpirit.user_id != login_session['user_id'] or login_session['email'] != 'Chris.Fiorino@gmail.com':
+    if editedSpirit.user_id != login_session['user_id'] and login_session['email'] != 'chris.fiorino@gmail.com':
         return """<script>function myFunction()
             {alert('You are not authorized to edit this spirit. Please cre
             ate your own spirit in order to edit.');}</script><body onload=
@@ -380,7 +380,7 @@ def deleteSpirit(spirit_id):
     creator = getUserInfo(spiritToDelete.user_id)
     recipes = session.query(Recipe).filter_by(
         spirit_id=spirit_id).all()
-    if spiritToDelete.user_id != login_session['user_id']:
+    if spiritToDelete.user_id != login_session['user_id'] and login_session['email'] != 'chris.fiorino@gmail.com':
         return """<script>function myFunction()
         {alert('You are not authorized to delete this spirit. Please
          create your own spirit in order to delete.');}</script>
@@ -435,7 +435,7 @@ def showSelectedRecipe(spirit_id, recipe_id):
         spirit_id=spirit_id).all()
     showSelectedRecipe = session.query(Recipe).filter_by(id=recipe_id).one()
     spirit = session.query(Spirit).filter_by(id=spirit_id).one()
-    if 'username' not in login_session:
+    if 'username' not in login_session or login_session['user_id'] != spirit.user_id:
         return render_template('publicShowSelectedRecipe.html',
                                spirit=spirit,
                                spirit_id=spirit_id,
@@ -443,11 +443,6 @@ def showSelectedRecipe(spirit_id, recipe_id):
                                recipe=showSelectedRecipe,
                                recipes=recipes,
                                spirits=spirits)
-    if login_session['user_id'] != spirit.user_id:
-        return """<script>function myFunction()
-                  {alert('You are not authorized to add menu items to this
-                   recipe. Please create your own spirit or recipe in order
-                   to add items.');}</script><body onload='myFunction()'>"""
     return render_template('showSelectedRecipe.html',
                            spirit=spirit,
                            spirit_id=spirit_id,
@@ -467,7 +462,7 @@ def newRecipe(spirit_id):
     spirit = session.query(Spirit).filter_by(id=spirit_id).one()
     recipes = session.query(Recipe).filter_by(
         spirit_id=spirit_id).all()
-    if login_session['user_id'] != spirit.user_id:
+    if login_session['user_id'] != spirit.user_id and login_session['email'] !='chris.fiorino@gmail.com':
         return """<script>function myFunction()
                   {alert('You are not authorized to add menu items to this
                    spirit. Please create your own spirit or recipe in order to
@@ -512,7 +507,7 @@ def editRecipe(spirit_id, recipe_id):
         spirit_id=spirit_id).all()
     editedRecipe = session.query(Recipe).filter_by(id=recipe_id).one()
     spirit = session.query(Spirit).filter_by(id=spirit_id).one()
-    if login_session['user_id'] != spirit.user_id:
+    if login_session['user_id'] != spirit.user_id and login_session['email'] !='chris.fiorino@gmail.com':
         return """<script>function myFunction()
                {alert('You are not authorized to edit menu items to this
                 recipe. Please create your own spirit or recipe in order to
@@ -557,7 +552,7 @@ def deleteRecipe(spirit_id, recipe_id):
     spirit = session.query(Spirit).filter_by(id=spirit_id).one()
     recipes = session.query(Recipe).filter_by(
         spirit_id=spirit_id).all()
-    if login_session['user_id'] != spirit.user_id:
+    if login_session['user_id'] != spirit.user_id and login_session['email'] !='chris.fiorino@gmail.com':
         return """<script>function myFunction()
                {alert('You are not authorized to edit menu items to this
                 recipe. Please create your own spirit or recipe in order to
