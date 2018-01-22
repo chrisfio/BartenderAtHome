@@ -356,6 +356,6 @@ a {
 	margin-bottom: 5px;
 }
 
-.popover .flash ul li strong {
+body > div > div.popover > div > ul > li > strong {
 	font-family: 'Open Sans', sans-serif;
 }
