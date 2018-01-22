@@ -348,7 +348,7 @@ def editSpirit(spirit_id):
     creator = getUserInfo(editedSpirit.user_id)
     recipes = session.query(Recipe).filter_by(
         spirit_id=spirit_id).all()
-    if editedSpirit.user_id != login_session['user_id'] and login_session['email'] == 'chris.fiorino@gmail.com':
+    if editedSpirit.user_id != login_session['user_id'] and login_session['email'] != 'chris.fiorino@gmail.com':
         flash('You do not have access to edit %s, you can only edit items you created' % editedSpirit.name)
         return redirect(url_for('showSpirits'))
     if request.method == 'POST':
