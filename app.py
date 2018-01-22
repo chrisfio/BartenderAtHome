@@ -203,8 +203,8 @@ key : value for the server access token then we split it on colons to pull out
 the actual token value and replace the remaining quotes with nothing so that
 it can be used directly in the graph api calls
     '''
-    print result
-    token = result.split(',')[0].split(':')[1].replace('"', '')
+    data = json.loads(result)
+    token = data.get('access_token')
 
     url = """https://graph.facebook.com/v2.8/me
             ?access_token=%s&fields=name,id,email""" % token
