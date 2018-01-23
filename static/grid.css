@@ -360,7 +360,12 @@ body > div > div.popover > div > ul > li > strong {
 	font-family: 'Open Sans', sans-serif;
 }
 
-.result img {
+.google-login-redirect {
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	font-size: 15px;
+}
+.google-login-redirect img {
 	height: 150px;
 	width: auto;
 }
