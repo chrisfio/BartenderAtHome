@@ -365,7 +365,13 @@ body > div > div.popover > div > ul > li > strong {
 	font-style: normal;
 	font-size: 15px;
 }
+
+#result h1 {
+	font-size: 17px;
+}
+
 #result img {
 	height: 150px;
 	width: auto;
+	display: none;
 }
