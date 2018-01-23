@@ -285,8 +285,8 @@ a {
 .login-box {
 	width: 33%;
     max-width: 400px;
-    height: 35%;
-    max-height: 300px;
+    height: 50%;
+    max-height: 400px;
     box-sizing: border-box;
     display: inline-block;
     background: #FFF;
@@ -358,4 +358,9 @@ a {
 
 body > div > div.popover > div > ul > li > strong {
 	font-family: 'Open Sans', sans-serif;
+}
+
+.result img {
+	height: 150px;
+	width: auto;
 }
